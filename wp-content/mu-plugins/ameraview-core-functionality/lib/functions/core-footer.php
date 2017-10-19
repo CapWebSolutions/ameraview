@@ -32,10 +32,10 @@ function cap_web_footer_creds_filter( $creds ) {
 	$rel = is_front_page() ? '' : 'rel="nofollow"';
 	
 	$creds = '<div class="alignleft">';
-	$creds .= '<a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms-conditions">Terms & Conditions</a><br/>';
+	// $creds .= '<a href="/policies/">Privacy Policy</a> &middot; <a href="/terms-conditions">Terms & Conditions</a><br/>';
 	$creds .= 'Copyright [footer_copyright] [sitename] &middot; All Rights Reserved.';
 	$creds .= '</div><div class="alignright">';
-	$creds .= '[footer_custombacktotop]<br/>';
+	// $creds .= '[footer_custombacktotop]<br/>';
 	$creds .= "Website by <a {$rel} href=\"https://capwebsolutions.com/\" target=\"_blank\" >Cap Web Solutions</a></div>";
 	return $creds;
 }

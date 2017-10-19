@@ -38,3 +38,24 @@ function woo_hide_page_title() {
 }
 add_filter( 'woocommerce_show_page_title' , 'woo_hide_page_title' );
 
+
+// This new gallery is off by default for custom and 3rd party themes since it's common to disable the WooCommerce gallery 
+// and replace with your own. To enable the gallery, you can declare support like this
+
+add_theme_support( 'wc-product-gallery-zoom' );
+add_theme_support( 'wc-product-gallery-lightbox' );
+
+/**
+* @snippet Remove the Category Counters | WooCommerce Shop / Loop
+* @how-to Watch tutorial @ https://businessbloomer.com/?p=19055
+* @sourcecode https://businessbloomer.com/?p=362
+* @author Rodolfo Melogli
+* @testedwith WooCommerce 3.1.0
+*/
+
+add_filter( 'woocommerce_subcategory_count_html', '__return_null' );
+
+/**
+ * Let's turn off that Ship to a different address box!
+ */
+add_filter( 'woocommerce_ship_to_different_address_checked', '__return_false');

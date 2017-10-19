@@ -1,13 +1,13 @@
 <?php
 /**
- * Ameraview Infinity Pro.
+ * Infinity Pro.
  *
  * This file adds functions to the Ameraview Infinity Pro Theme.
  *
- * @package Infinity
- * @author  StudioPress
+ * @package Ameraview Infinity
+ * @author  Cap Web Solutions
  * @license GPL-2.0+
- * @link    http://my.studiopress.com/themes/infinity/
+ * @link    https://github.com/CapWebSolutions/ameraview.git
  */
 
 // Start the engine.
@@ -41,9 +41,9 @@ function infinity_localization_setup(){
 }
 
 // Child theme (do not remove).
-define( 'CHILD_THEME_NAME', 'Infinity Pro' );
-define( 'CHILD_THEME_URL', 'http://my.studiopress.com/themes/infinity/' );
-define( 'CHILD_THEME_VERSION', '1.1.2' );
+define( 'CHILD_THEME_NAME', 'Ameraview Infinity Pro' );
+define( 'CHILD_THEME_URL', 'https://github.com/CapWebSolutions/ameraview.git' );
+define( 'CHILD_THEME_VERSION', '2.0.0' );
 
 // Enqueue scripts and styles.
 add_action( 'wp_enqueue_scripts', 'infinity_enqueue_scripts_styles' );
@@ -105,11 +105,11 @@ add_theme_support( 'custom-header', array(
 ) );
 
 // Add image sizes.
-add_image_size( 'mini-thumbnail', 75, 75, TRUE );
-add_image_size( 'team-member', 600, 600, TRUE );
+// add_image_size( 'mini-thumbnail', 75, 75, TRUE );
+// add_image_size( 'team-member', 600, 600, TRUE );
 
 // Add support for after entry widget.
-add_theme_support( 'genesis-after-entry-widget-area' );
+// add_theme_support( 'genesis-after-entry-widget-area' );
 
 // Remove header right widget area.
 unregister_sidebar( 'header-right' );
@@ -295,4 +295,11 @@ if (!function_exists('loop_columns')) {
 	function loop_columns() {
 		return 4; // 4 products per row
 	}
+}
+
+// Change the checkout page message for no shipping rates available. 
+add_filter( 'woocommerce_no_shipping_available_html', 'my_custom_no_shipping_message' );
+add_filter( 'woocommerce_cart_no_shipping_available_html', 'my_custom_no_shipping_message' );
+function my_custom_no_shipping_message( $message ) {
+	return __( 'There are no calculated shipping methods available. Please <a href="/contact/">contact us</a> for a custom shipping quote for this order.' );
 }

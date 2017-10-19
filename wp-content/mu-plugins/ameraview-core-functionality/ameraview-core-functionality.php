@@ -23,6 +23,9 @@ define( 'CWS_DIR', dirname( __FILE__ ) );
 // General. This should always be used. 
 include_once( CWS_DIR . '/lib/functions/general.php' );
 
+// Custom logon logo Setup.This should always be used too. Just sayin 
+include_once( CWS_DIR . '/lib/functions/custom-logon-logo.php' );
+
 // Define needed Custom Post Types.
 // include_once( CWS_DIR . '/lib/functions/post-types.php' );
 
